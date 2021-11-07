@@ -34,7 +34,7 @@
         <form action="users/connect.php" method="post">
           <div class="form-group">
             <label for="email">Email: <sup>*</sup></label>
-            <input type="email" required placeholder="Entrez votre email" name="email" class="form-control form-control-lg <?php echo (!empty($data['email_err'])) ? 'is-invalid' : ''; ?>" value="">
+            <input type="email" required placeholder="Entrez votre email" name="email" class="form-control form-control-lg <?php echo (!empty($data['email_err'])) ? 'is-invalid' : ''; ?>" value="<?php if(isset($_SESSION['email'])): echo $_SESSION['email']; endif ?>">
             <span class="invalid-feedback"><?php echo $data['email_err']; ?></span>
           </div>
           <div class="form-group">

@@ -40,6 +40,7 @@ if(isset($_POST['email']) && isset($_POST['password'])){
     }else{
         $connexion_failed = 'Authentification échoué...';
         $_SESSION['error_auth'] = $connexion_failed;
+        $_SESSION['email'] = $user['email'];
         header('location: '. '../index.php');
     }
 }else{
