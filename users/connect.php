@@ -14,8 +14,8 @@ if(isset($_POST['email']) && isset($_POST['password'])){
         // 'password'   => md5(sha1(str_rot13($password))),
         'password' => $password
     ]);
-    echo count($request->fetchAll());
-    if(count($request->fetchAll()) == "0"){
+    // echo count($request->fetchAll());
+    if(count($request->fetchAll()) == "1"){
         echo 'connecté<br/>';
         $user_data = $bdd->query('SELECT * FROM user WHERE email =  "'.$email.'"');
         $data = $user_data->fetch(PDO::FETCH_ASSOC);
@@ -32,12 +32,15 @@ if(isset($_POST['email']) && isset($_POST['password'])){
            header('location: '. 'student.php');
         }else{
             $connexion_failed = 'Authentification échoué...';
+            $_SESSION['error_auth'] = $connexion_failed;
             header('location: '. '../index.php');
         }
      
         
     }else{
-        echo 'Pas connecté';
+        $connexion_failed = 'Authentification échoué...';
+        $_SESSION['error_auth'] = $connexion_failed;
+        header('location: '. '../index.php');
     }
 }else{
     print_r('email et mot passe non défini...');

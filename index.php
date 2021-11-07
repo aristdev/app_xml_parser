@@ -28,8 +28,9 @@
     <div class="col-md-6 mx-auto">
       <div class="card card-body bg-light mt-5">
         <h2>Connexion</h2>
-       
+        <!-- <div class="alert alert-danger" id="msg-flash"> -->
         <p>Renseignez vos identifiants pour vous connecter</p>
+        <?php if(isset($_SESSION["error_auth"])): echo '<div class="alert alert-danger" id="msg-flash">' .$_SESSION['error_auth'] . '</div>';  endif ?>
         <form action="users/connect.php" method="post">
           <div class="form-group">
             <label for="email">Email: <sup>*</sup></label>

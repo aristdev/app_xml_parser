@@ -22,13 +22,18 @@
       </div>
 </div>
 </nav>
+
 <div class="container">
+  
   <div class="row">
     <div class="col-md-6 mx-auto">
       <div class="card card-body bg-light mt-5">
         <h2>Connexion</h2>
        
         <p>Renseignez vos identifiants pour vous connecter</p>
+        <?php if(isset($_SESSION['error_auth'])): '<div class="'.$class.'" id="msg-flash">'.$_SESSION['error_auth'].'</div>' ?>
+        <div class="alert alert-danger" role="alert">echoué</div>
+ 
         <form action="connect.php" method="post">
           <div class="form-group">
             <label for="email">Email: <sup>*</sup></label>
