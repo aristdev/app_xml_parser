@@ -26,10 +26,13 @@ if(isset($_POST['email']) && isset($_POST['password'])){
         $_SESSION['prenom'] = $user['prenom'];
         $_SESSION['role'] = $user['role'];
 
-        if($user['role'] == 'professeur'){
+        if($user['role'] == '1'){
            header('location: '. 'teacher.php');
-        }else if($user['role'] == 'etudiant'){
+        }else if($user['role'] == '2'){
            header('location: '. 'student.php');
+        }else{
+            $connexion_failed = 'Authentification échoué...';
+            header('location: '. '../index.php');
         }
      
         
