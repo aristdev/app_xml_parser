@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE examen SYSTEM "./tp_6.dtd">
+<examen codeCours="XMLcours">
+	<titre>TD/TPn*1</titre>
+	<date mois="Janv" annee="2021"/>
+	<questions>
+		<question>
+			<partie>
+				Soit le document XML suivant :<![CDATA[
+				<conf> </conf>
+				<unite groupe="universite" temps="1086585433" maison="Jean" /> <maison/>
+				<?xml version="1.0" encoding="ISO-8859-1" standalone="no" ?> 
+				<!DOCTYPE compagnie [ <!ENTITY % administration "Jeanne Perron" > 
+				<!ENTITY administration "Jean Boudin">
+				<!ELEMENT compagnie (president,comptable,adjoint)*>
+				<!ELEMENT president (#PCDATA)> <!ELEMENT comptable (#PCDATA)> 
+				<!ELEMENT adjoint (#PCDATA)> ]>
+				<compagnie> 
+				<president>&administration;</president> 
+				<comptable>&administration;</comptable> 
+				<adjoint>Marion Lepage</adjoint> 
+				</compagnie>]]>
+				<partie></partie>
+			</partie>
+		</question>
+		<question>
+			<partie>
+				Au Cinéma!
+				Les Brigades du Tigre 
+				- Policier (2h 5min)
+				- De Jérôme Cornuau
+				- VF (en Français)
+				- Avec: C. Cornillac, D. Kruger, E. Baer
+				- Année: 2005
+				- Presse : 3/5 Spectateurs : 4/5
+				Les aventures du commissaire Valentin et des inspecteurs Terrasson et Pujol, 
+				membres des Brigades mobiles, corps spécial de la police française créé avant 
+				la Première Guerre mondiale.
+				Mer, Sam : 14:00 | 16:40 | 19:40 | 22:10
+				Jeu, Ven, Lun, Mar : 14:00 | 19:40 | 22:10
+				Dim : 10:20 | 14:00 | 16:40 | 20:20
+				Dans cet exercice on se propose de concevoir un système permettant de publier le programme d'un 
+				cinéma sur Internet. Le programme est constitué du descriptif de chaque film à l'affiche pendant la 
+				semaine. Comme dans l'exemple, ci-après, chaque film est décrit par son titre, sa durée, son genre, son 
+				réalisateur, ses acteurs, année de production sa langue de diffusion ainsi que par un court paragraphe 
+				décrivant l'intrigue. Cette description est complétée par la liste des horaires de projection
+			</partie>
+			<partie>
+				 Proposer un arbre XML pour représenter le film décrit ci-dessus (Les brigades du tigres).
+			</partie>
+			<partie>
+				Quels éléments faut-il ajouter pour construire un document XML représentant l'ensemble du 
+				programme d'un cinéma? Votre fichier XML doit contenir au minimum 5 films différents
+			</partie>
+			<partie>
+				Proposer une DTD pour valider les arbres XML représentant les programmes de cinéma. 
+				Votre DTD devra imposer les contraintes suivantes :	
+				<partie>
+					a)Les notes de la presse et des spectateurs sont optionnelle
+				</partie>	
+				<partie>
+					b)Chaque film doit obligatoirement avoir un titr
+				</partie>
+				<partie>
+					c)Chaque film doit obligatoirement contenir au moins un horaire de projection
+				</partie>
+			</partie>
+			<partie>
+				Proposer une DTD qui soit la moins restrictive possible pour valider les arbres XML 
+				représentant les programmes de cinéma. Cette dernière doit prendre en compte les éléments 
+				décrivant un film dans n'importe quel ordre
+			</partie>
+		</question>
+		<question>
+			<partie>Ecrire la DTD correspondante à chacun des points suivants :</partie>
+			<partie>
+				<partie>
+					-un dialogue est composé de 0 ou 1 situation puis de au moins 1 repliqu
+				 </partie>
+				 <partie>-un dialogue est composé de 0 ou 1 situation puis de au moins 1 repliqu</partie>
+				 <partie>-une replique est composée de 1 personnage puis de 1 texte</partie>
+			</partie>
+		</question>
+		<question>
+			<partie>
+				<!-- <![DATA[Soit la DTD suivante :
+						<!ELEMENT anthologie (poeme+)>
+						<!ELEMENT Poeme (titre?, strophe+)>
+						<!ELEMENT titre (#PCDATA)>
+						<!ELEMENT strophe (ligne+)>
+						<!ELEMENT ligne (#PCDATA)>
+						Cette DTD est-elle correcte ? Justifie]]> -->
+			</partie>
+		</question>
+		<question>
+			<partie>
+				On souhaite représenter un carnet d'adresses en XML. Pour chaque entrée du carnet, on veut conserver 
+				les informations suivantes :
+				-nom et prenom de la personne
+				-adresse 
+				-numero de telephone (éventuellement plusieurs)
+				-adresse mail (éventuellement plusieurs)
+				-date d'anniversaire
+				<partie>
+					Ecrire une DTD pour le carnet d'adresses
+				</partie>
+				<partie>
+					Ecrire un fichier valide pour cette DTD, comportant au moins deux entrées et faisant apparaître 
+					toutes les possibilités de la DTD (c'est-a-dire toutes les valeurs possibles pour les attributs et tous les 
+					éléments et attributs optionnels).
+				</partie>
+			</partie>
+			<partie>
+				Écrivez une DTD pour des documents XML de type examen. Un examen contient un code de cours, 
+				un titre et une date qui contient uniquement le mois et l'année. Ces éléments sont suivis par une liste de 
+				questions. Un examen a entre 5 et 6 questions et chaque question a une ou plusieurs parties. Une partie 
+				se découpe en textes mélangés avec d'autres parties. Le code est uniquement alphanumérique, sans 
+				espace, la valeur de mois doit être une chaîne de caractère valide (idée: utilisez des énumérations).
+				<partie>
+					Donnez une instance de document valide par rapport à votre DTD (utilisez une déclaration de DTD 
+externe) et 		deux exemples invalide en expliquant pourquoi.
+				</partie>
+			</partie>
+		</question>
+		<question>
+			<partie>
+				Vous travaillez sur un site portail qui propose aux restaurants un espace de diffusion. Les
+				restaurants ayant souscrit à un abonnement à ce portail ont la possibilité d’éditer une fiche les
+				décrivant. Sur cette fiche, ils indiquent :
+				–Leurs coordonnées, nom et adresse, le nom du restaurateur, ainsi qu’une description de leur 
+				établissement. Cette description inclut une mise en valeur à l’aide de listes, de paragraphes, de parties 
+				de texte jugées importantes (dont l’intérêt doit être relevé par rapport aux autres parties par un moyen 
+				graphique non déterminé à l’avance). Elle inclut aussi des images 
+				placées soit à droite, à gauche ou au centre dans le paragraphe où elles sont insérées. Le fichier 
+				d’image est accessible via une url.3
+				–Leur carte avec pour chaque plat, une indication obligatoire de la partie du repas (entrée,dessert, plat, 
+				fromage) concernée, le prix (obligatoire), une description d’un seul paragraphe 
+				contenant ́éventuellement des parties de texte importantes.
+				–La liste des menus qui sera préś entée au choix selon soit un ordre de prix ou dans l’ordre
+				d’apparition dans cette fiche. Chaque menu a un titre, une description et un prix. La liste
+				des éléments du menu est décrite à partir des éléments de la carte.
+				Certains restaurants n’ont pas de menu mais uniquement un service à la carte. Les descriptions des 
+				plats et r	estaurants sont optionnelles. Les prix s’expriment dans une devise qui doit être précisée.
+				<partie>
+					Ecrivez une DTD pour cette fiche et illustrez-la par deux documents. Vous n’avez pas à vous 
+					préocupper de l’apparence ou du rendu de cette fiche. Vous n’avez comme préoccupation que la 
+					simple question de la représentation/mémorisation des données dont il est question.
+				</partie>
+			</partie>
+		</question>
+	</questions>
+</examen>
