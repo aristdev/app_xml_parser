@@ -79,7 +79,7 @@ if(isset($_POST['code_cours']) && isset($_POST['titre']) && isset($_POST['mois']
            $partie6Element = $question5Element->addChild("partie", $partie6[$i]);
        }
     echo $XML->asXML();
-    $XML->asXML($code_cours .'-'. $titre . '-examens.xml') or die ('Erreur de création du fichier XML');
+    $XML->asXML('../examensXML/'. $code_cours .'-'. $titre . '-examens.xml') or die ('Erreur de création du fichier XML');
     header('location: teacher.php?message=success');
 }
 

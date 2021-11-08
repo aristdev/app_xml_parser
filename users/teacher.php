@@ -30,7 +30,7 @@
       <div class="card card-body bg-light mt-8">
         <h2>Professeur | <?php if(isset($_SESSION['nom']) && isset($_SESSION['prenom'])):  echo $_SESSION['nom'] . ' ' . $_SESSION['prenom']; endif ?></h2>
        <br/>
-        <h4>Renseigner les informations relatives à l'examen</h4>
+        <div><span style="font-size: 19px;">Renseigner les informations relatives à l'examen</span> <a href="controleListExamen.php" class="btn btn-warning">Liste des examens <i class="fa fa-list"></i></a></div>
         <?php if(isset($_GET['message']) && $_GET['message'] == "success"): echo '<div class="alert alert-success">création effectuée avec succès. Fichier XML généré correctement.</div>'; endif?>
         <p>(<i class="text text-danger">*</i>) Champ obligatoire</p>
        <form method="POST" action="submitForm.php">
