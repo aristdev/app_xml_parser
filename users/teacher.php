@@ -31,6 +31,7 @@
         <h2>Professeur | <?php if(isset($_SESSION['nom']) && isset($_SESSION['prenom'])):  echo $_SESSION['nom'] . ' ' . $_SESSION['prenom']; endif ?></h2>
        <br/>
         <h4>Renseigner les informations relatives à l'examen</h4>
+        <?php if(isset($_GET['message']) && $_GET['message'] == "success"): echo '<div class="alert alert-success">création effectuée avec succès. Fichier XML généré correctement.</div>'; endif?>
         <p>(<i class="text text-danger">*</i>) Champ obligatoire</p>
        <form method="POST" action="submitForm.php">
        <div class="form-group">
@@ -156,12 +157,12 @@ $(document).ready(function(){
     var numq1 = $('.q1').length;
     var NewNumq1 = numq1 + 1;
     var newElement = $('.q1:last').clone().attr('id', 'input1'  + NewNumq1);
-    newElement.children('textarea').attr('id', 'partie1' + NewNumq1).val(null);
+    newElement.children(':first').attr('id', 'partie1' + NewNumq1).val(null);
     $('.q1:last').after(newElement);
     $('#q1Remove').prop('disabled', false);
     
     // $('#partieq1').append('<br/><textarea type="text" required placeholder="Renseignez la partie" name="partie1" class="form-control form-control-md col-md-6" value=""></textarea> &nbsp; &nbsp;')
-  })
+  });
   $('#q1Remove').on('click', function(){
     var num = $('.q1').length;
     $('#input1' + num).remove();//retirer le dernier element
@@ -197,7 +198,7 @@ $(document).ready(function(){
     var numq3 = $('.q3').length;
     var NewNumq3 = numq3 + 1;
     var newElement3 = $('.q3:last').clone().attr('id', 'input3'  + NewNumq3);
-    newElement30.children(':first').attr('id', 'partie3' + NewNumq3).val(null);
+    newElement3.children(':first').attr('id', 'partie3' + NewNumq3).val(null);
     $('.q3:last').after(newElement3);
     $('#q3Remove').prop('disabled', false);
     // $('#partieq1').append('<br/><textarea type="text" required placeholder="Renseignez la partie" name="partie1" class="form-control form-control-md col-md-6" value=""></textarea> &nbsp; &nbsp;')
@@ -211,14 +212,14 @@ $(document).ready(function(){
     if(num - 1 == 1)
       $('#q3Remove').prop('disabled', true);
   });
-
+  $('#q3Remove').prop('disabled', true);
   //partie4
-  $('#q3Add').on('click',function(){
+  $('#q4Add').on('click',function(){
     var numq4 = $('.q4').length;
     var NewNumq4 = numq4 + 1;
     var newElement4 = $('.q4:last').clone().attr('id', 'input4'  + NewNumq4);
     newElement4.children(':first').attr('id', 'partie4' + NewNumq4).val(null);
-    $('.q4:last').after(newElement3);
+    $('.q4:last').after(newElement4);
     $('#q4Remove').prop('disabled', false);
     // $('#partieq1').append('<br/><textarea type="text" required placeholder="Renseignez la partie" name="partie1" class="form-control form-control-md col-md-6" value=""></textarea> &nbsp; &nbsp;')
   })
@@ -231,7 +232,7 @@ $(document).ready(function(){
     if(num - 1 == 1)
       $('#q4Remove').prop('disabled', true);
   });
-
+  $('#q4Remove').prop('disabled', true);
   //partie5
   var codeCours = $('#codeCours').val();
 
@@ -250,11 +251,31 @@ $(document).ready(function(){
     //activer bouton "ajouter"
     $('#q5Add').prop('disabled', false);
     //si seulemnt un elemnt reste , desactiver le bouton "retirer"
-    if(num - 1 == 1)
+    if(num5 - 1 == 1)
       $('#q5Remove').prop('disabled', true);
   });
+  $('#q5Remove').prop('disabled', true);
 
-
+  //partie6
+  $('#q6Add').on('click',function(){
+    var numq6 = $('.q6').length;
+    var NewNumq6 = numq6 + 1;
+    var newElement6 = $('.q6:last').clone().attr('id', 'input6'  + NewNumq6);
+    newElement6.children(':first').attr('id', 'partie6' + NewNumq6).val(null);
+    $('.q6:last').after(newElement6);
+    $('#q6Remove').prop('disabled', false);
+    // $('#parti11eq1').append('<br/><textarea type="text" required placeholder="Renseignez la partie" name="partie1" class="form-control form-control-md col-md-6" value=""></textarea> &nbsp; &nbsp;')
+  })
+  $('#q6Remove').on('click', function(){
+    var num6 = $('.q6').length;
+    $('#input6' + num6).remove();//retirer le dernier element
+    //activer bouton "ajouter"
+    $('#q6Add').prop('disabled', false);
+    //si seulemnt un elemnt reste , desactiver le bouton "retirer"
+    if(num6 - 1 == 1)
+      $('#q6Remove').prop('disabled', true);
+  });
+  $('#q6Remove').prop('disabled', true);
   //envoie des donnees par ajax
 //   $('#submitForm').on('click', function(){
 //     console.log(partieq1)

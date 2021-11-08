@@ -80,6 +80,6 @@ if(isset($_POST['code_cours']) && isset($_POST['titre']) && isset($_POST['mois']
        }
     echo $XML->asXML();
     $XML->asXML($code_cours .'-'. $titre . '-examens.xml') or die ('Erreur de création du fichier XML');
-    header('location: teacher.php');
+    header('location: teacher.php?message=success');
 }
 
