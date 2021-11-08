@@ -1,4 +1,6 @@
-<?php session_start();?>
+<?php
+require_once('singleFileControl.php');
+ session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,35 +30,31 @@
   <div class="row">
     <div class="col-lg-8 mx-auto">
       <div class="card card-body bg-light mt-8">
-        <h2>Liste des examens </h2>
+        <h2>Examen - <?php echo $titre; ?> </h2>
        <br/>
-        <div><span style="font-size: 19px;">Renseigner les informations relatives à l'examen</span> </div>
+        <div><span style="font-size: 19px;">Questions de l'examen de <?= $mois . ' '. $annee ; ?> </span> <?php if($_SESSION['role'] == '1'): echo " <a href='teacher.php' class='btn btn-success'>Enrégistrer un examen <i class='fa fa-plus'></i></a>" ; endif ?></div>
         <div>
             <br/>
-        <table class="table table-light">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nom </th>
-      <th scope="col">Action</th>
-     
-    </tr>
-  </thead>
-  <tbody>
+        
       <?php 
         //   $countFile = count($_GET['fichiers']);
         // print_r($_SESSION['fichiers']);
         $i = 1;
-          foreach($_SESSION['fichiers'] as $file){ ?>
-    <tr>
-      <th scope="row"><?php echo $i++; ?></th>
-      <td><?php echo explode('.xml', $file)[0]; ?></td>
-      <td><a href="showExamenSingle.php?nomFichier=<?= $file ;?>" class="btn btn-success">Consulter <i class="fa fa-eye"></i></a></td>
-    </tr>
-    <?php } 
+        $j = 1;
+          foreach($examens->questions as $questions){
+              
+              foreach($questions as $question){
+                echo "<br/>================<h2 class='badge badge-danger'>Question" . $i ++ . "</h2>======================<br/><br/>";
+                    foreach($question->partie as $partie){
+                ?>
+
+      <?php echo "<span class='badge badge-info'>Nouvelle Partie</span> || " . $partie .'<br/>' ?>
+    
+    <?php }
+     } 
+    }
      ?>
-  </tbody>
-</table>
+
         </div>
        
       </div>

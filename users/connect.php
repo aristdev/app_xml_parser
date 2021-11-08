@@ -29,7 +29,7 @@ if(isset($_POST['email']) && isset($_POST['password'])){
         if($user['role'] == '1'){
            header('location: '. 'teacher.php');
         }else if($user['role'] == '2'){
-           header('location: '. 'student.php');
+           header('location: '. 'controleListExamen.php');
         }else{
             $connexion_failed = 'Authentification échoué...';
             $_SESSION['error_auth'] = $connexion_failed;

@@ -18,7 +18,7 @@
           <!-- <li class="nav-item">
             <a class="nav-link" href="">Accueil</a>
           </li> -->
-          <div class="text-align-center " style="color: white;">XML PARSER APP</div>
+          <div class="text-align-center " ><a style="color: white;" class="btn " href="#">XML PARSER APP</a></div>
         </ul>
       </div>
 </div>

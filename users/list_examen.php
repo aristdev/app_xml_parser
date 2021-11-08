@@ -18,7 +18,7 @@
           <!-- <li class="nav-item">
             <a class="nav-link" href="">Accueil</a>
           </li> -->
-          <div class="text-align-center " style="color: white;">XML PARSER APP</div>
+          <div class="text-align-center " ><a style="color: white;" class="btn " href="../index.php">XML PARSER APP</a></div>
         </ul>
         <div class="text-align-center " style="color: white;"><?php if(isset($_SESSION['email'])): echo $_SESSION['email']; endif ?> | <a class="btn btn-danger" href="logout.php">Se Déconnecter</a></div>
       </div>
@@ -30,7 +30,7 @@
       <div class="card card-body bg-light mt-8">
         <h2>Liste des examens </h2>
        <br/>
-        <div><span style="font-size: 19px;">Renseigner les informations relatives à l'examen</span> <a href="list_examen.php" class="btn btn-warning">Liste des examens <i class="fa fa-list"></i></a></div>
+        <div><?php if($_SESSION['role'] == '1'): echo "<span style='font-size: 19px;'>Renseigner les informations relatives à l'examen</span> <a href='teacher.php' class='btn btn-success'>Enrégistrer un examen <i class='fa fa-plus'></i></a>" ; endif ?></div>
         <div>
             <br/>
         <table class="table table-light">
@@ -51,7 +51,7 @@
     <tr>
       <th scope="row"><?php echo $i++; ?></th>
       <td><?php echo explode('.xml', $file)[0]; ?></td>
-      <td><a class="btn btn-success">Consulter <i class="fa fa-eye"></i></a></td>
+      <td><a href="showExamenSingle.php?nomFichier=<?= $file ;?>" class="btn btn-success">Consulter <i class="fa fa-eye"></i></a></td>
     </tr>
     <?php } 
      ?>

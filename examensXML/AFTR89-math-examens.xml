@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<examen codeCours="AFTR89"><titre>math</titre><date mois="Nov" annee="2021"/><questions><question><partie>partie1</partie><partie>partie2</partie><partie>partie3&#13;
+contenu...............</partie></question><question><partie>question 2&#13;
+partie 1</partie><partie>question 2&#13;
+partie 2</partie><partie>question 2&#13;
+partie 3</partie></question><question><partie>question3&#13;
+partie1</partie><partie>question3&#13;
+partie2</partie></question><question><partie>question 4&#13;
+partie 1</partie><partie>question 4&#13;
+partie 2</partie></question><question><partie>question5&#13;
+partie a</partie><partie>question5&#13;
+partie b ...................</partie><partie/></question><question/></questions></examen>

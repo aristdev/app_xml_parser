@@ -18,7 +18,7 @@
           <!-- <li class="nav-item">
             <a class="nav-link" href="">Accueil</a>
           </li> -->
-          <div class="text-align-center " style="color: white;">XML PARSER APP</div>
+          <div class="text-align-center " ><a style="color: white;" class="btn " href="../index.php">XML PARSER APP</a></div>
         </ul>
         <div class="text-align-center " style="color: white;"><?php if(isset($_SESSION['email'])): echo $_SESSION['email']; endif ?> | <a class="btn btn-danger" href="logout.php">Se Déconnecter</a></div>
       </div>
